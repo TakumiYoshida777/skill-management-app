@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('qualifications', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->uuid('id',36)->primary();
+            $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
             $table->string('qualifications_name', 255);
             $table->text('description');
             $table->string('issuing_authority', 255);

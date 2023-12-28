@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mdr_portfolio_used_skills', function (Blueprint $table) {
+        Schema::create('mst_servers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('portfolio_id')->constrained()->onDelete('cascade');
-            $table->foreignId('skill_id')->constrained()->onUpdate('cascade');
-            $table->tinyInteger('has_work_experience');
+            $table->string('server',100);
         });
     }
 
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mdr_portfolio_used_skills');
+        Schema::dropIfExists('mst_servers');
     }
 };

@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mdr_projects_used_skills', function (Blueprint $table) {
+        Schema::create('mst_version_managements', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('project_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('skill_id')->constrained()->onUpdate('cascade');
+            $table->string('version_management',100);
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mdr_projects_used_skills');
+        Schema::dropIfExists('mst_version_managements');
     }
 };

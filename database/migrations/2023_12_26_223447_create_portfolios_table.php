@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('portfolios', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->uuid('id',36)->primary();
+            $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
             $table->string('project_name', 255);
             $table->text('description');
             $table->string('app_url', 255)->nullable();
             $table->string('github_url', 255)->nullable();
             $table->date('start_date');
             $table->date('end_date');
-            $table->boolean('is_published')->default(false);
-            $table->string('memo',255)->nullable();
-            $table->softDeletes();
+            $table->tinyInteger('published')->default(0);
+            $table->string('memo', 255)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
