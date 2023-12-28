@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('email',255)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('position');
-            $table->string('position_description');
+            $table->string('division');
+            $table->string('section')->nullable();
             $table->integer('industry_experience_months');
             $table->string('password');
             $table->string('pr',255);
